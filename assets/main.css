@@ -9,7 +9,6 @@ html, body {
 
 body {
     background-color: #333;
-    /*background-image: url('https://olback.net/assets/bg.svg');*/
     background-image: url('train-tracks-to-the-horizon-landscape.jpg');
     background-size: cover;
     text-align: center;
@@ -22,7 +21,9 @@ body {
     font-size: 64pt;
 }
 
-.search {
+#search {
+    width: 40%;
+    outline: none;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #999;
@@ -31,14 +32,8 @@ body {
     padding: 10px;
 }
 
-#search {
-    width: 40%;
-    outline: none;
-}
-
 #search:focus {
     border-bottom: 1px solid #777;
-    /*transform: translateY(-1px);*/
 }
 
 #search::placeholder {

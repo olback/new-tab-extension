@@ -8,7 +8,9 @@ const time = document.getElementById('time');
 
 function showTime() {
     d = new Date();
-    time.innerHTML = d.getHours() + ':' + d.getMinutes();
+    let min = d.getMinutes();
+    if(min < 10) min = '0' + min;
+    time.innerHTML = d.getHours() + ':' + min;
 }
 
 setInterval(() => {
@@ -19,12 +21,19 @@ showTime();
 
 
 /* Handle search */
+const searchInput = document.getElementById("search");
+const searchEngineUrl = 'https://www.google.se/search?q=';
+
 document.getElementById("search-icon").addEventListener("click", () => {
     search();
 });
 
-const searchInput = document.getElementById("search");
-const searchEngineUrl = 'https://www.google.se/search?q=';
+document.getElementById("search").addEventListener("keypress", (e) => {
+    let key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+        search();
+    }
+});
 
 function search() {
     if(searchInput.value.replace(/\s/g,'') !== "") {
